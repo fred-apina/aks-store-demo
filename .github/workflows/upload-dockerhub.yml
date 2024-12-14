@@ -33,10 +33,14 @@ jobs:
 
       - name: 'Print secrets.DOCKER_USERNAME'
         shell: bash
-        run: echo '${{ secrets.DOCKER_USERNAME }}'
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        run: echo '$secrets.DOCKER_USERNAME'
 
       - name: 'Print secrets.DOCKERHUB_PASSWORD'
         shell: bash
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKERHUB_PASSWORD }}
         run: echo '${{ secrets.DOCKERHUB_PASSWORD }}'
 
       - name: Log in to Docker Hub
