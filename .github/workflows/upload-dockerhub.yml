@@ -33,15 +33,15 @@ jobs:
 
       - name: 'Print secrets.DOCKER_USERNAME'
         shell: bash
-        env:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-        run: echo "$DOCKER_USERNAME"
+        # env:
+        #   DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        run: echo "${{ secrets.DOCKER_USERNAME }}"
 
       - name: 'Print secrets.DOCKERHUB_PASSWORD'
         shell: bash
-        env:
-          DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
-        run: echo "$DOCKERHUB_PASSWORD"
+        # env:
+        #   DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
+        run: echo "${{ secrets.DOCKERHUB_PASSWORD }}"
 
       - name: Log in to Docker Hub
         uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
