@@ -34,14 +34,10 @@ jobs:
 
       - name: 'Print secrets.DOCKER_USERNAME'
         shell: bash
-        # env:
-        #   DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
         run: echo "${{ secrets.DOCKERHUB_USERNAME }}"
 
       - name: 'Print secrets.DOCKERHUB_PASSWORD'
         shell: bash
-        # env:
-        #   DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
         run: echo "${{ secrets.DOCKERHUB_PASSWORD }}"
 
       - name: Log in to Docker Hub
@@ -58,4 +54,3 @@ jobs:
           file: ./src/${{ matrix.service }}/Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ matrix.service }}:latest
-          labels: ${{ steps.meta.outputs.labels }}
