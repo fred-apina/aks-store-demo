@@ -63,9 +63,7 @@ jobs:
           context: ./src/${{ matrix.service }}
           file: ./src/${{ matrix.service }}/Dockerfile
           push: true
-          tags: |
-            ${{ steps.meta.outputs.tags }}
-            ${{ secrets.DOCKERHUB_USERNAME }}/${{ matrix.service }}:latest
+          tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
       - name: Generate artifact attestation
