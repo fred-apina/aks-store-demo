@@ -11,7 +11,6 @@ class ProductServicer(product_pb2_grpc.ProductServiceServicer):
         self.products: Dict[str, product_pb2.Product] = {}
 
     def GetProducts(self, request, context):
-        print('Tupoooooooooo')
         return product_pb2.ProductList(products=list(self.products.values()))
 
     def GetProduct(self, request, context):

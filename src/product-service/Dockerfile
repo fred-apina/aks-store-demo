@@ -5,8 +5,8 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY protos/ protos/
-RUN python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. protos/product.proto
+COPY product.proto .
+RUN python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. product.proto
 
 COPY server.py .
 
